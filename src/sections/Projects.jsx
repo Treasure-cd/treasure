@@ -7,6 +7,9 @@ const B          = 20
 const ARM        = B + 14
 const CARD_PERIM = 3000
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
+
 const PROJECTS = [
   {
     num:         '01',
@@ -50,7 +53,6 @@ const PROJECTS = [
   },
 ]
 
-const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 
 const SCANLINES = {
   position:      'absolute',
