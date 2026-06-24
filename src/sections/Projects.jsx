@@ -17,7 +17,7 @@ const PROJECTS = [
     featured:    true,
     type:        'web',
     screenshots: [asset('screenshots/stride-1.png'), asset('screenshots/stride-2.png')],
-    desc:        'A custom study planner and guidance pipeline tailored for neurodivergent accessibility. Engineered the NoSQL backend data architecture and the recommendation system based on how each individual brain works. Built from scratch for high-integrity assistive tooling.',
+    desc:        'A custom study planner and guidance pipeline tailored for neurodivergent accessibility. Engineered the NoSQL backend architecture and the recommendation system based on how each individual brain works. Built from scratch for high-integrity assistive tooling.',
     tags:        ['Node.js', 'MongoDB', 'Express', 'State Management', 'Accessibility UX'],
     url:         '#',
   },
@@ -476,7 +476,7 @@ export default function Projects() {
                 e.currentTarget.style.borderLeft = '2px solid transparent'
             }}
             >
-            <span>{`> fetch_profile.sh`}</span>
+            <span>{`> my_resume.sh`}</span>
             <span className="text-[9px] text-[#00df0066] font-bold tracking-tight group-hover:text-[#ff007f]">
                 [EXE]
             </span>
