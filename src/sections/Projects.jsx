@@ -13,7 +13,7 @@ const PROJECTS = [
     name:        'Stride',
     featured:    true,
     type:        'web',
-    screenshots: ['/screenshots/stride-1.png', '/screenshots/stride-2.png'],
+    screenshots: [asset('screenshots/stride-1.png'), asset('screenshots/stride-2.png')],
     desc:        'A custom study planner and guidance pipeline tailored for neurodivergent accessibility. Engineered the NoSQL backend data architecture and the recommendation system based on how each individual brain works. Built from scratch for high-integrity assistive tooling.',
     tags:        ['Node.js', 'MongoDB', 'Express', 'State Management', 'Accessibility UX'],
     url:         '#',
@@ -23,7 +23,7 @@ const PROJECTS = [
     name:        'ChainCall',
     featured:    false,
     type:        'web',
-    screenshots: ['/screenshots/chaincall.png'],
+    screenshots: [asset('/screenshots/chaincall.png')],
     desc:        'Solana developer tooling designed to fetch, parse, and explore on-chain program IDLs, simulate instruction execution, and build transactions directly from a browser environment. Turning the client layer into a heavy engineering runtime.',
     tags:        ['Solana', 'Web3', 'TypeScript', 'Serialization', 'Dev Tooling'],
     url:         'https://chain-call.vercel.app',
@@ -33,7 +33,7 @@ const PROJECTS = [
     name:        'Kablux',
     featured:    false,
     type:        'mobile',
-    screenshots: ['/screenshots/kablux-1.jpg', '/screenshots/kablux-2.jpg'],
+    screenshots: [asset('/screenshots/kablux-1.jpg'), asset('/screenshots/kablux-2.jpg')],
     desc:        'A high-performance ride-sharing and courier mobile client featuring persistent multi-point location tracking and bi-directional real-time data streams over WebSockets. Engineered to prevent state-desynchronization during fast-moving updates.',
     tags:        ['React Native', 'WebSockets', 'Asynchronous Streams', 'Geolocation API'],
     url:         '#',
@@ -43,12 +43,14 @@ const PROJECTS = [
     name:        'Regexium',
     featured:    false,
     type:        'web',
-    screenshots: ['/screenshots/regexium.png'],
+    screenshots: [asset('/screenshots/regexium.png')],
     desc:        'A real-time Regular Expression compiler, syntax evaluator, and tokenizer. Strips expressions down on the fly to generate detailed interactive breakdowns without relying on external system abstractions.',
     tags:        ['Vue 3', 'TypeScript', 'Tokenization', 'Compiler Logic', 'UI State'],
     url:         'https://regexium.onrender.com',
   },
 ]
+
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 
 const SCANLINES = {
   position:      'absolute',
@@ -83,7 +85,6 @@ function Shot({ src, style = {} }) {
   )
 }
 
-/** Link button — dims when url is '#' */
 function ViewLink({ url }) {
   const isLive = url !== '#'
   return (
@@ -182,7 +183,6 @@ function CardChrome({ borderRef, bracketsRef }) {
   )
 }
 
-// ─── Intersection + scramble hook, shared by both card variants ───────────────
 
 function useCardAnimation(name) {
   const cardRef     = useRef(null)
@@ -293,7 +293,6 @@ function StandardCard({ project, index }) {
 
   const ScreenshotArea = () => {
     if (project.type === 'mobile') {
-      // Two portrait phones, fixed height to stay proportionate
       return (
         <div className="flex gap-3">
           {project.screenshots.map((src, i) => (
@@ -302,7 +301,6 @@ function StandardCard({ project, index }) {
         </div>
       )
     }
-    // Web — always single screenshot at this point (ChainCall, Regexium)
     return <Shot src={project.screenshots[0]} style={{ aspectRatio: '16 / 10' }} />
   }
 
@@ -356,7 +354,6 @@ export default function Projects() {
   const sectionRef = useRef(null)
   const hasAnimated = useRef(false)
   
-  // Track active file view state (defaults to Stride)
   const [activeFile, setActiveFile] = useState('01')
 
   useEffect(() => {
@@ -457,7 +454,7 @@ export default function Projects() {
 
             {/* RESUME DOWNLOAD BUTTON */}
             <a
-            href="/resumetaj.docx"  // Path to your resume in the public folder
+            href={asset('resumetaj.docx')}  // Path to your resume in the public folder
             download="Treasure_Ani-Joseph_Resume.pdf"
             className="w-full text-left font-mono text-xs p-2 transition-all duration-200 flex justify-between items-center group"
             style={{
@@ -467,7 +464,7 @@ export default function Projects() {
                 textDecoration: 'none'
             }}
             onMouseEnter={e => {
-                e.currentTarget.cstyle.color = '#e8ffe8'
+                e.currentTarget.style.color = '#e8ffe8'
                 e.currentTarget.style.backgroundColor = '#00df0015'
                 e.currentTarget.style.borderLeft = '2px solid #00df00'
             }}
