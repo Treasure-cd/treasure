@@ -66,7 +66,7 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-start pt-[15vh]">
         <h1
           ref={nameRef}
-          className="text-4xl md:text-6xl font-bold"
+          className="font-bold whitespace-nowrap text-[clamp(1.8rem,7vw,4rem)]"
           style={{ fontFamily: MONO, color: 'transparent', WebkitTextStroke: '1.5px #e8ffe8' }}
         />
         <p
