@@ -456,7 +456,7 @@ export default function Projects() {
 
             {/* RESUME DOWNLOAD BUTTON */}
             <a
-            href={asset('resumetaj.docx')}  // Path to your resume in the public folder
+            href={asset('resumetaj.pdf')}
             download="Treasure_Ani-Joseph_Resume.pdf"
             className="w-full text-left font-mono text-xs p-2 transition-all duration-200 flex justify-between items-center group"
             style={{
